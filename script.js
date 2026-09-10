@@ -19,6 +19,8 @@ const toast = document.querySelector("#toast");
 const lightbox = document.querySelector("#image-lightbox");
 const lightboxImage = document.querySelector("#lightbox-image");
 const lightboxCaption = document.querySelector("#lightbox-caption");
+const searchInput = document.querySelector("#search-input");
+const newsletterForm = document.querySelector("#newsletter-form");
 
 const euro = (value) => `€${value.toFixed(0)}`;
 
@@ -148,3 +150,16 @@ lightbox.addEventListener("click", (event) => {
 
 renderProducts();
 renderCart();
+
+searchInput.addEventListener("input", (event) => {
+  const query = event.target.value.trim().toLowerCase();
+  document.querySelectorAll(".product-card").forEach((card) => {
+    card.hidden = query && !card.textContent.toLowerCase().includes(query);
+  });
+});
+
+newsletterForm.addEventListener("submit", (event) => {
+  event.preventDefault();
+  newsletterForm.reset();
+  showToast("¡Listo! Revisa tu correo para usar tu descuento.");
+});

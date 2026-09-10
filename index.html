@@ -3,83 +3,42 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Geomuni: flores frescas y arreglos hechos con cariño para cada ocasión." />
-    <title>Geomuni | Flores que hacen florecer momentos</title>
+    <meta name="description" content="Geomuni: flores y regalos para celebrar todos tus momentos." />
+    <title>Geomuni | Flores para celebrar</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
+    <div class="topbar">Envío gratis en pedidos desde €45 <span>•</span> Entregas hoy hasta las 18:00</div>
     <header class="site-header">
-      <a class="brand" href="#inicio" aria-label="Geomuni, inicio">
-        <span class="brand-mark" aria-hidden="true">✽</span>
-        <span>geomuni</span>
-      </a>
-      <nav class="main-nav" aria-label="Navegación principal">
-        <a href="#catalogo">Flores</a>
-        <a href="#beneficios">Nuestra esencia</a>
-        <a href="#contacto">Contacto</a>
-      </nav>
-      <button class="cart-button" id="open-cart" type="button" aria-controls="cart-panel" aria-expanded="false">
-        <span>Carrito</span>
-        <span class="cart-count" id="cart-count">0</span>
-      </button>
+      <a class="brand" href="#inicio"><span class="brand-mark">✽</span><span>geomuni</span></a>
+      <nav class="main-nav" aria-label="Categorías"><a href="#catalogo">Flores</a><a href="#ocasiones">Ocasiones</a><a href="#catalogo">Regalos</a><a href="#beneficios">Suscripciones</a></nav>
+      <div class="header-actions"><label class="search"><span aria-hidden="true">⌕</span><input id="search-input" type="search" placeholder="¿Qué estás buscando?" aria-label="Buscar flores" /></label><button class="icon-button" type="button" aria-label="Mi cuenta">♙</button><button class="cart-button" id="open-cart" type="button" aria-controls="cart-panel" aria-expanded="false"><span aria-hidden="true">♧</span><span class="cart-count" id="cart-count">0</span></button></div>
     </header>
+    <nav class="occasion-nav" aria-label="Comprar por ocasión"><a href="#catalogo">Cumpleaños</a><a href="#catalogo">Amor</a><a href="#catalogo">Gracias</a><a href="#catalogo">Nacimiento</a><a href="#catalogo">Condolencias</a><a href="#catalogo">Corporativo</a></nav>
 
     <main id="inicio">
       <section class="hero">
-        <div class="hero-copy">
-          <p class="eyebrow">Flores con intención <span>✦</span></p>
-          <h1>Haz que hoy<br /><em>florezca.</em></h1>
-          <p class="hero-text">Arreglos frescos, locales y llenos de color para regalar, celebrar o llenar tu espacio de algo bonito.</p>
-          <a class="primary-button" href="#catalogo">Explorar flores <span aria-hidden="true">→</span></a>
-          <div class="hero-note"><span class="note-icon">✿</span><span>Entrega el mismo día<br /><strong>en pedidos antes de las 13:00</strong></span></div>
-        </div>
-        <div class="hero-art" aria-label="Ramo de flores rosas y blancas">
-          <div class="sun-shape"></div>
-          <div class="hero-image"></div>
-          <div class="floating-card"><span>★★★★★</span><strong>Hecho con cariño</strong><small>por floristas locales</small></div>
-        </div>
+        <div class="hero-copy"><p class="eyebrow">La florería de tus momentos</p><h1>Regala flores.<br /><em>Regala emoción.</em></h1><p>Arreglos frescos diseñados para decir eso que a veces las palabras no pueden.</p><a class="primary-button" href="#catalogo">Ver colección <span>→</span></a></div>
+        <div class="hero-visual"><div class="hero-photo" role="img" aria-label="Arreglo floral de rosas y flores blancas"></div><div class="hero-badge">Hecho<br /><strong>con amor</strong><br />✦</div></div>
       </section>
 
-      <section class="catalog-section" id="catalogo">
-        <div class="section-heading">
-          <div><p class="eyebrow">La colección <span>✦</span></p><h2>Elige algo<br /><em>especial.</em></h2></div>
-          <p class="section-intro">Cada ramo se arma a mano con flores de temporada seleccionadas por su belleza y frescura.</p>
-        </div>
-        <div class="product-grid" id="product-grid"></div>
-      </section>
+      <section class="trust-row"><div><strong>✿</strong><span><b>Flores frescas</b><small>Seleccionadas cada día</small></span></div><div><strong>◷</strong><span><b>Entrega el mismo día</b><small>Recibe cuando lo necesitas</small></span></div><div><strong>♡</strong><span><b>Compra segura</b><small>Tu pedido, en buenas manos</small></span></div></section>
 
-      <section class="benefits" id="beneficios">
-        <div class="benefit-intro"><p class="eyebrow">Por qué Geomuni <span>✦</span></p><h2>Pequeños detalles,<br /><em>grandes momentos.</em></h2></div>
-        <div class="benefit-list">
-          <article class="benefit"><span class="benefit-number">01</span><div><h3>Frescura garantizada</h3><p>Flores cortadas con cuidado y entregadas en su mejor momento.</p></div></article>
-          <article class="benefit"><span class="benefit-number">02</span><div><h3>Diseño con intención</h3><p>Combinaciones que cuentan una historia y hacen sonreír.</p></div></article>
-          <article class="benefit"><span class="benefit-number">03</span><div><h3>Siempre más humano</h3><p>Apoyamos a cultivadores y floristas de nuestra comunidad.</p></div></article>
-        </div>
-      </section>
+      <section class="occasion-section" id="ocasiones"><div class="section-heading"><div><p class="eyebrow">Encuentra el regalo perfecto</p><h2>Flores para cada<br /><em>ocasión.</em></h2></div><a class="text-link" href="#catalogo">Ver todas <span>→</span></a></div><div class="occasion-grid"><a class="occasion-card occasion-love" href="#catalogo"><span>Para decir</span><strong>Te quiero</strong><small>Ver regalos para enamorar →</small></a><a class="occasion-card occasion-birthday" href="#catalogo"><span>Para celebrar</span><strong>Su cumpleaños</strong><small>Ver flores de cumpleaños →</small></a><a class="occasion-card occasion-thanks" href="#catalogo"><span>Para agradecer</span><strong>Gracias</strong><small>Ver detalles especiales →</small></a></div></section>
 
-      <section class="contact-section" id="contacto">
-        <div><p class="eyebrow">Hablemos <span>✦</span></p><h2>¿Tienes una ocasión<br /><em>en mente?</em></h2></div>
-        <div class="contact-copy"><p>Cuéntanos qué quieres celebrar y crearemos un arreglo a tu medida.</p><a class="text-link" href="mailto:hola@geomuni.com">hola@geomuni.com <span>↗</span></a></div>
-      </section>
+      <section class="catalog-section" id="catalogo"><div class="section-heading"><div><p class="eyebrow">Los más elegidos</p><h2>Hazlo <em>especial.</em></h2></div><a class="text-link" href="#catalogo">Explorar catálogo <span>→</span></a></div><div class="product-grid" id="product-grid"></div></section>
+
+      <section class="benefits" id="beneficios"><div><p class="eyebrow">La experiencia Geomuni</p><h2>Todo lo bonito<br />empieza <em>aquí.</em></h2></div><div class="benefit-list"><article class="benefit"><span>01</span><div><h3>Frescura que se nota</h3><p>Trabajamos con flores de temporada para que cada ramo llegue radiante.</p></div></article><article class="benefit"><span>02</span><div><h3>Detalles que emocionan</h3><p>Incluye una tarjeta personalizada y una presentación lista para regalar.</p></div></article><article class="benefit"><span>03</span><div><h3>Entrega con cuidado</h3><p>Llevamos tu pedido a la puerta indicada, en el horario que prefieras.</p></div></article></div></section>
+
+      <section class="newsletter"><div><p class="eyebrow">El club Geomuni</p><h2>Flores bonitas,<br /><em>siempre.</em></h2></div><form id="newsletter-form"><p>Recibe inspiración, novedades y un 10% de descuento en tu primer pedido.</p><div class="email-field"><input type="email" placeholder="Tu correo electrónico" aria-label="Correo electrónico" required /><button type="submit">Suscribirme →</button></div></form></section>
     </main>
+    <footer class="site-footer"><a class="brand" href="#inicio"><span class="brand-mark">✽</span><span>geomuni</span></a><div><a href="#catalogo">Catálogo</a><a href="#beneficios">Nosotros</a><a href="#beneficios">Contacto</a></div><p>© 2024 Geomuni · Flores para sentir bonito.</p></footer>
 
-    <footer class="site-footer"><a class="brand" href="#inicio"><span class="brand-mark" aria-hidden="true">✽</span><span>geomuni</span></a><p>Flores para sentir bonito.</p><p>© 2024 Geomuni</p></footer>
-
-    <div class="cart-overlay" id="cart-overlay" hidden></div>
-    <aside class="cart-panel" id="cart-panel" aria-label="Resumen del carrito" aria-hidden="true">
-      <div class="cart-header"><div><p class="eyebrow">Tu selección</p><h2>Tu carrito</h2></div><button class="close-button" id="close-cart" type="button" aria-label="Cerrar carrito">×</button></div>
-      <div class="cart-items" id="cart-items"><div class="empty-cart"><span>✿</span><p>Tu carrito está esperando<br />algo bonito.</p></div></div>
-      <div class="cart-footer"><div class="total-row"><span>Total</span><strong id="cart-total">€0</strong></div><button class="checkout-button" id="checkout-button" type="button" disabled>Continuar al pedido <span>→</span></button><p class="secure-note">♡ Pago seguro y entrega cuidada</p></div>
-    </aside>
-    <div class="image-lightbox" id="image-lightbox" hidden aria-hidden="true">
-      <button class="lightbox-close" id="close-lightbox" type="button" aria-label="Cerrar imagen ampliada">×</button>
-      <img id="lightbox-image" src="" alt="" />
-      <p id="lightbox-caption"></p>
-    </div>
-    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+    <div class="cart-overlay" id="cart-overlay" hidden></div><aside class="cart-panel" id="cart-panel" aria-label="Resumen del carrito" aria-hidden="true"><div class="cart-header"><div><p class="eyebrow">Tu selección</p><h2>Tu carrito</h2></div><button class="close-button" id="close-cart" type="button" aria-label="Cerrar carrito">×</button></div><div class="cart-items" id="cart-items"><div class="empty-cart"><span>✿</span><p>Tu carrito está esperando<br />algo bonito.</p></div></div><div class="cart-footer"><div class="total-row"><span>Total</span><strong id="cart-total">€0</strong></div><button class="checkout-button" id="checkout-button" type="button" disabled>Continuar al pedido <span>→</span></button><p class="secure-note">♡ Pago seguro y entrega cuidada</p></div></aside>
+    <div class="image-lightbox" id="image-lightbox" hidden aria-hidden="true"><button class="lightbox-close" id="close-lightbox" type="button" aria-label="Cerrar imagen ampliada">×</button><img id="lightbox-image" src="" alt="" /><p id="lightbox-caption"></p></div><div class="toast" id="toast" role="status" aria-live="polite"></div>
     <script src="script.js"></script>
   </body>
 </html>
