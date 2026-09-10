@@ -16,13 +16,16 @@ const checkoutButton = document.querySelector("#checkout-button");
 const cartPanel = document.querySelector("#cart-panel");
 const cartOverlay = document.querySelector("#cart-overlay");
 const toast = document.querySelector("#toast");
+const lightbox = document.querySelector("#image-lightbox");
+const lightboxImage = document.querySelector("#lightbox-image");
+const lightboxCaption = document.querySelector("#lightbox-caption");
 
 const euro = (value) => `€${value.toFixed(0)}`;
 
 function renderProducts() {
   productGrid.innerHTML = products.map((product) => `
     <article class="product-card">
-      <div class="product-image" style="background-image:url('${product.image}')">
+      <div class="product-image" style="background-image:url('${product.image}')" data-image="${product.id}" role="button" tabindex="0" aria-label="Ver ${product.name} en pantalla completa">
         ${product.tag ? `<span class="product-tag">${product.tag}</span>` : ""}
         <button class="add-button" type="button" data-add="${product.id}" aria-label="Añadir ${product.name} al carrito">+</button>
       </div>
@@ -79,13 +82,25 @@ function closeCart() {
 
 productGrid.addEventListener("click", (event) => {
   const button = event.target.closest("[data-add]");
-  if (!button) return;
-  const product = products.find((item) => item.id === Number(button.dataset.add));
-  const existing = cart.find((item) => item.id === product.id);
-  if (existing) existing.quantity += 1;
-  else cart.push({ ...product, quantity: 1 });
-  renderCart();
-  showToast(`${product.name} se añadió al carrito`);
+  if (button) {
+    const product = products.find((item) => item.id === Number(button.dataset.add));
+    const existing = cart.find((item) => item.id === product.id);
+    if (existing) existing.quantity += 1;
+    else cart.push({ ...product, quantity: 1 });
+    renderCart();
+    showToast(`${product.name} se añadió al carrito`);
+    return;
+  }
+
+  const image = event.target.closest("[data-image]");
+  if (image) openLightbox(Number(image.dataset.image));
+});
+
+productGrid.addEventListener("keydown", (event) => {
+  if ((event.key === "Enter" || event.key === " ") && event.target.matches("[data-image]")) {
+    event.preventDefault();
+    openLightbox(Number(event.target.dataset.image));
+  }
 });
 
 cartItems.addEventListener("click", (event) => {
@@ -103,8 +118,33 @@ document.querySelector("#close-cart").addEventListener("click", closeCart);
 cartOverlay.addEventListener("click", closeCart);
 document.addEventListener("keydown", (event) => {
   if (event.key === "Escape" && cartPanel.classList.contains("is-open")) closeCart();
+  if (event.key === "Escape" && !lightbox.hidden) closeLightbox();
 });
 checkoutButton.addEventListener("click", () => showToast("¡Gracias! Pronto te contactaremos para finalizar tu pedido."));
+
+function openLightbox(productId) {
+  const product = products.find((item) => item.id === productId);
+  if (!product) return;
+  lightboxImage.src = product.image;
+  lightboxImage.alt = product.name;
+  lightboxCaption.textContent = product.name;
+  lightbox.hidden = false;
+  lightbox.setAttribute("aria-hidden", "false");
+  document.body.style.overflow = "hidden";
+  document.querySelector("#close-lightbox").focus();
+}
+
+function closeLightbox() {
+  lightbox.hidden = true;
+  lightbox.setAttribute("aria-hidden", "true");
+  lightboxImage.src = "";
+  document.body.style.overflow = cartPanel.classList.contains("is-open") ? "hidden" : "";
+}
+
+document.querySelector("#close-lightbox").addEventListener("click", closeLightbox);
+lightbox.addEventListener("click", (event) => {
+  if (event.target === lightbox) closeLightbox();
+});
 
 renderProducts();
 renderCart();
