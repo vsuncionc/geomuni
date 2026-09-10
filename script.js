@@ -1,11 +1,14 @@
 const products = [
-  { id: 1, name: "Rosa atardecer", type: "Rosas · 12 tallos", price: 38, image: "https://images.unsplash.com/photo-1490750967868-88aa4486c946?auto=format&fit=crop&w=700&q=85", tag: "Favorito" },
-  { id: 2, name: "Días de peonía", type: "Peonías · 8 tallos", price: 46, image: "https://images.unsplash.com/photo-1495231916356-a86217efff12?auto=format&fit=crop&w=700&q=85", tag: "Nuevo" },
-  { id: 3, name: "Campo silvestre", type: "Mix de temporada", price: 32, image: "https://images.unsplash.com/photo-1523438885200-e635ba2c371e?auto=format&fit=crop&w=700&q=85", tag: "" },
-  { id: 4, name: "Tulipanes de abril", type: "Tulipanes · 15 tallos", price: 35, image: "https://images.unsplash.com/photo-1559563362-c667ba5f5480?auto=format&fit=crop&w=700&q=85", tag: "" },
-  { id: 5, name: "Luz de verano", type: "Margaritas · 12 tallos", price: 29, image: "https://images.unsplash.com/photo-1509223197845-458d87318791?auto=format&fit=crop&w=700&q=85", tag: "" },
-  { id: 6, name: "Jardín secreto", type: "Mix premium", price: 52, image: "https://images.unsplash.com/photo-1468327768560-75b778cbb551?auto=format&fit=crop&w=700&q=85", tag: "Premium" },
+  { id: 1, name: "Rosa atardecer", type: "Rosas · 12 tallos", price: 38, images: ["1490750967868-88aa4486c946","1495231916356-a86217efff12","1518709268805-4e9042af9f23","1526047932273-341f2a7631f9","1523438885200-e635ba2c371e"], tag: "Favorito" },
+  { id: 2, name: "Días de peonía", type: "Peonías · 8 tallos", price: 46, images: ["1495231916356-a86217efff12","1490750967868-88aa4486c946","1469259943454-aa100abba749","1522673607200-164d1b6ce486","1523438885200-e635ba2c371e"], tag: "Nuevo" },
+  { id: 3, name: "Campo silvestre", type: "Mix de temporada", price: 32, images: ["1523438885200-e635ba2c371e","1468327768560-75b778cbb551","1509223197845-458d87318791","1490750967868-88aa4486c946","1495231916356-a86217efff12"], tag: "" },
+  { id: 4, name: "Tulipanes de abril", type: "Tulipanes · 15 tallos", price: 35, images: ["1559563362-c667ba5f5480","1522382529505-32c5b3a2f3d1","1520763185298-1b434c919102","1528913775512-9c4ae6b9a53e","1468327768560-75b778cbb551"], tag: "" },
+  { id: 5, name: "Luz de verano", type: "Margaritas · 12 tallos", price: 29, images: ["1509223197845-458d87318791","1490750967868-88aa4486c946","1501004318641-0bd9eac7f7a8","1495231916356-a86217efff12","1523438885200-e635ba2c371e"], tag: "" },
+  { id: 6, name: "Jardín secreto", type: "Mix premium", price: 52, images: ["1468327768560-75b778cbb551","1523438885200-e635ba2c371e","1490750967868-88aa4486c946","1507504031003-b417219a0fde","1495231916356-a86217efff12"], tag: "Premium" },
 ];
+
+const imageUrl = (id) => `https://images.unsplash.com/photo-${id}?auto=format&fit=crop&w=800&q=85`;
+products.forEach((product) => { product.image = imageUrl(product.images[0]); });
 
 const cart = [];
 const productGrid = document.querySelector("#product-grid");
@@ -27,7 +30,13 @@ const euro = (value) => `€${value.toFixed(0)}`;
 function renderProducts() {
   productGrid.innerHTML = products.map((product) => `
     <article class="product-card">
-      <div class="product-image" style="background-image:url('${product.image}')" data-image="${product.id}" role="button" tabindex="0" aria-label="Ver ${product.name} en pantalla completa">
+      <div class="product-image" data-image="${product.id}" role="button" tabindex="0" aria-label="Ver ${product.name} en pantalla completa">
+        <div id="carousel-${product.id}" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="3600">
+          <div class="carousel-indicators">${product.images.map((_, index) => `<button type="button" data-bs-target="#carousel-${product.id}" data-bs-slide-to="${index}" class="${index === 0 ? "active" : ""}" aria-label="Imagen ${index + 1}"></button>`).join("")}</div>
+          <div class="carousel-inner">${product.images.map((image, index) => `<div class="carousel-item ${index === 0 ? "active" : ""}"><img src="${imageUrl(image)}" alt="${product.name}, imagen ${index + 1}" /></div>`).join("")}</div>
+          <button class="carousel-control-prev" type="button" data-bs-target="#carousel-${product.id}" data-bs-slide="prev" aria-label="Imagen anterior"><span class="carousel-control-prev-icon"></span></button>
+          <button class="carousel-control-next" type="button" data-bs-target="#carousel-${product.id}" data-bs-slide="next" aria-label="Imagen siguiente"><span class="carousel-control-next-icon"></span></button>
+        </div>
         ${product.tag ? `<span class="product-tag">${product.tag}</span>` : ""}
         <button class="add-button" type="button" data-add="${product.id}" aria-label="Añadir ${product.name} al carrito">+</button>
       </div>
@@ -95,7 +104,9 @@ productGrid.addEventListener("click", (event) => {
   }
 
   const image = event.target.closest("[data-image]");
-  if (image) openLightbox(Number(image.dataset.image));
+  if (image && !event.target.closest(".carousel-control-prev, .carousel-control-next, .carousel-indicators")) {
+    openLightbox(Number(image.dataset.image));
+  }
 });
 
 productGrid.addEventListener("keydown", (event) => {
