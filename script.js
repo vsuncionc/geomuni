@@ -20,8 +20,9 @@ const cartPanel = document.querySelector("#cart-panel");
 const cartOverlay = document.querySelector("#cart-overlay");
 const toast = document.querySelector("#toast");
 const lightbox = document.querySelector("#image-lightbox");
-const lightboxImage = document.querySelector("#lightbox-image");
 const lightboxCaption = document.querySelector("#lightbox-caption");
+const lightboxSlides = document.querySelector("#lightbox-slides");
+const lightboxIndicators = document.querySelector("#lightbox-indicators");
 const searchInput = document.querySelector("#search-input");
 const newsletterForm = document.querySelector("#newsletter-form");
 
@@ -138,8 +139,8 @@ checkoutButton.addEventListener("click", () => showToast("¡Gracias! Pronto te c
 function openLightbox(productId) {
   const product = products.find((item) => item.id === productId);
   if (!product) return;
-  lightboxImage.src = product.image;
-  lightboxImage.alt = product.name;
+  lightboxSlides.innerHTML = product.images.map((image, index) => `<div class="carousel-item ${index === 0 ? "active" : ""}"><img src="${imageUrl(image)}" alt="${product.name}, imagen ${index + 1}" /></div>`).join("");
+  lightboxIndicators.innerHTML = product.images.map((_, index) => `<button type="button" data-bs-target="#lightbox-carousel" data-bs-slide-to="${index}" class="${index === 0 ? "active" : ""}" aria-label="Ver imagen ${index + 1}"></button>`).join("");
   lightboxCaption.textContent = product.name;
   lightbox.hidden = false;
   lightbox.setAttribute("aria-hidden", "false");
@@ -150,7 +151,8 @@ function openLightbox(productId) {
 function closeLightbox() {
   lightbox.hidden = true;
   lightbox.setAttribute("aria-hidden", "true");
-  lightboxImage.src = "";
+  lightboxSlides.innerHTML = "";
+  lightboxIndicators.innerHTML = "";
   document.body.style.overflow = cartPanel.classList.contains("is-open") ? "hidden" : "";
 }
 
