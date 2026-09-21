@@ -67,7 +67,7 @@ h2 span { color: var(--orange); }
 .team-card-head { min-height: 165px; background: transparent; color: #fff; padding: 1.5rem; position: absolute; inset: 0; overflow: hidden; z-index: 2; }
 .team-card-head::after { content: attr(data-short); position: absolute; right: -.3rem; bottom: -2.4rem; font: 800 9rem/.8 "Barlow Condensed"; opacity: .15; }
 .team-number { position: relative; z-index: 1; font: 700 1.2rem "Barlow Condensed"; opacity: .8; }
-.team-card h3 { position: relative; z-index: 1; max-width: 85%; font-size: 2.25rem; line-height: .84; text-transform: uppercase; margin: 1.8rem 0 0; }
+.team-card h3 { position: relative; z-index: 1; max-width: 92%; color: #fff; font-size: clamp(2.6rem, 4vw, 3.5rem); font-weight: 800; letter-spacing: -.015em; line-height: .8; text-shadow: 0 2px 14px rgba(0,0,0,.3); text-transform: uppercase; margin: 1.8rem 0 0; }
 .team-card-body { padding: 1.35rem 1.5rem 1.5rem; }
 .player-count { display: flex; justify-content: space-between; color: var(--muted); font-size: .7rem; font-weight: 700; text-transform: uppercase; letter-spacing: .12em; margin-bottom: 1rem; }
 .player-count strong { color: var(--team); font: 700 1.9rem/.7 "Barlow Condensed"; }
