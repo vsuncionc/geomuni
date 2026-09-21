@@ -1,7 +1,7 @@
 const teams = [
   { name: "HUASCARAN", color: "#e34b36", short: "H", image: "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/46/Huascaran.JPG/960px-Huascaran.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail", imageAlt: "Imagen ilustrativa del nevado Huascarán en la Cordillera Blanca del Perú; no corresponde a sus jugadores", players: ["Jhon", "Carlos", "Florentino", "Juan", "Teo", "Italo", "Giancarlo", "Roberto", "Asis", "Nelson"] },
   { name: "LA RESISTENCIA", color: "#ef9c26", short: "LR", image: "https://images.unsplash.com/photo-1431324155629-1a6deb1dec8d?auto=format&fit=crop&w=900&q=78", imageAlt: "Imagen futbolística ilustrativa de LA RESISTENCIA; no corresponde a sus jugadores", players: ["Luis", "Juan", "Romel", "Oscar", "Cesar", "Ruben", "Pecho", "Jorge", "Ernesto", "David"] },
-  { name: "KINEROS FC", color: "#147e88", short: "K", image: "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4a/20180610_FIFA_Friendly_Match_Austria_vs._Brazil_850_2206.jpg/960px-20180610_FIFA_Friendly_Match_Austria_vs._Brazil_850_2206.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail", imageAlt: "Imagen futbolística ilustrativa de Neymar marcando para Brasil; alude a Brasil y Neymar, no corresponde a los jugadores de KINEROS FC", country: "BRASIL", logo: "./assets/kineros-fc-escudo.jpg", players: ["Vlady", "Christian Patez", "Christian Uti", "Frank Segura", "Freddy", "James", "Miguelon", "Noe UTI", "Kinero Wilson"] },
+  { name: "KINEROS FC", color: "#147e88", short: "K", image: "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/65/20180610_FIFA_Friendly_Match_Austria_vs._Brazil_Neymar_850_1705.jpg/960px-20180610_FIFA_Friendly_Match_Austria_vs._Brazil_Neymar_850_1705.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail", imageAlt: "Imagen futbolística ilustrativa de Neymar como único jugador visible con Brasil; no corresponde a los jugadores de KINEROS FC", country: "BRASIL", logo: "./assets/kineros-fc-escudo.jpg", players: ["Vlady", "Christian Patez", "Christian Uti", "Frank Segura", "Freddy", "James", "Miguelon", "Noe UTI", "Kinero Wilson"] },
   { name: "REAL STATISTIC NEWBOYS", color: "#6254a4", short: "RSN", image: "https://upload.wikimedia.org/wikipedia/commons/4/46/Maracana_Stadium.jpg", imageAlt: "Imagen futbolística ilustrativa del estadio Maracaná en Brasil; no corresponde a sus jugadores", players: ["Moshe Markarian", "Helfer", "Renato", "Abraham", "Miguel Maquina", "Raul", "Vocina", "Leo Rojas"] }
 ];
 
@@ -21,7 +21,7 @@ function renderTeams(query = "") {
   grid.innerHTML = filteredTeams.map((team, teamIndex) => `
     <div class="col-md-6 col-xl-3">
       <article class="team-card" style="--team: ${team.color}">
-        <div class="team-card-media">
+        <div class="team-card-media${team.country ? " brazil-feature" : ""}">
           <img src="${team.image}" alt="${team.imageAlt}" loading="lazy" decoding="async">
           ${team.logo ? `<img class="team-logo" src="${team.logo}" alt="Escudo de ${team.name}" loading="lazy" decoding="async">` : ""}
           ${team.country ? `<span class="team-country-badge" aria-label="Referencia visual a Brasil"><span aria-hidden="true">◆</span>${team.country}</span>` : ""}
