@@ -1,8 +1,8 @@
 const teams = [
-  { name: "HUASCARAN", color: "#e34b36", short: "H", image: "https://images.unsplash.com/photo-1579952363873-27f3bade9f55?auto=format&fit=crop&w=900&q=78", players: ["Jhon", "Carlos", "Florentino", "Juan", "Teo", "Italo", "Giancarlo", "Roberto", "Asis", "Nelson"] },
-  { name: "LA RESISTENCIA", color: "#ef9c26", short: "LR", image: "https://images.unsplash.com/photo-1431324155629-1a6deb1dec8d?auto=format&fit=crop&w=900&q=78", players: ["Luis", "Juan", "Romel", "Oscar", "Cesar", "Ruben", "Pecho", "Jorge", "Ernesto", "David"] },
-  { name: "KINEROS FC", color: "#147e88", short: "K", image: "https://images.unsplash.com/photo-1552674605-db6ffd4facb5?auto=format&fit=crop&w=900&q=78", logo: "./assets/kineros-fc-escudo.jpg", players: ["Vlady", "Christian Patez", "Christian Uti", "Frank Segura", "Freddy", "James", "Miguelon", "Noe UTI", "Kinero Wilson"] },
-  { name: "REAL STATISTIC NEWBOYS", color: "#6254a4", short: "RSN", image: "https://images.unsplash.com/photo-1579952363873-27f3bade9f55?auto=format&fit=crop&crop=faces&w=900&q=72", players: ["Moshe Markarian", "Helfer", "Renato", "Abraham", "Miguel Maquina", "Raul", "Vocina", "Leo Rojas"] }
+  { name: "HUASCARAN", color: "#e34b36", short: "H", image: "https://images.unsplash.com/photo-1579952363873-27f3bade9f55?auto=format&fit=crop&w=900&q=78", imageAlt: "Imagen futbolística ilustrativa de HUASCARAN; no corresponde a sus jugadores", players: ["Jhon", "Carlos", "Florentino", "Juan", "Teo", "Italo", "Giancarlo", "Roberto", "Asis", "Nelson"] },
+  { name: "LA RESISTENCIA", color: "#ef9c26", short: "LR", image: "https://images.unsplash.com/photo-1431324155629-1a6deb1dec8d?auto=format&fit=crop&w=900&q=78", imageAlt: "Imagen futbolística ilustrativa de LA RESISTENCIA; no corresponde a sus jugadores", players: ["Luis", "Juan", "Romel", "Oscar", "Cesar", "Ruben", "Pecho", "Jorge", "Ernesto", "David"] },
+  { name: "KINEROS FC", color: "#147e88", short: "K", image: "https://upload.wikimedia.org/wikipedia/commons/0/01/Arena_Corinthians.jpg", imageAlt: "Imagen futbolística ilustrativa de la Arena Corinthians en Brasil para KINEROS FC; no corresponde a sus jugadores", logo: "./assets/kineros-fc-escudo.jpg", players: ["Vlady", "Christian Patez", "Christian Uti", "Frank Segura", "Freddy", "James", "Miguelon", "Noe UTI", "Kinero Wilson"] },
+  { name: "REAL STATISTIC NEWBOYS", color: "#6254a4", short: "RSN", image: "https://upload.wikimedia.org/wikipedia/commons/4/46/Maracana_Stadium.jpg", imageAlt: "Imagen futbolística ilustrativa del estadio Maracaná en Brasil; no corresponde a sus jugadores", players: ["Moshe Markarian", "Helfer", "Renato", "Abraham", "Miguel Maquina", "Raul", "Vocina", "Leo Rojas"] }
 ];
 
 const grid = document.querySelector("#team-grid");
@@ -22,7 +22,7 @@ function renderTeams(query = "") {
     <div class="col-md-6 col-xl-3">
       <article class="team-card" style="--team: ${team.color}">
         <div class="team-card-media">
-          <img src="${team.image}" alt="Imagen futbolística ilustrativa de ${team.name}; no corresponde a sus jugadores" loading="lazy" decoding="async">
+          <img src="${team.image}" alt="${team.imageAlt}" loading="lazy" decoding="async">
           ${team.logo ? `<img class="team-logo" src="${team.logo}" alt="Escudo de ${team.name}" loading="lazy" decoding="async">` : ""}
           <div class="team-card-head" data-short="${team.short}">
           <span class="team-number">0${teamIndex + 1} / 04</span>
