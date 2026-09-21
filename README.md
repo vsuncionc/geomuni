@@ -1,6 +1,6 @@
-# Geomuni · Torneo 2026
+# Copa Zoológico · 2026
 
-Página pública responsive para consultar los equipos y plantillas del torneo Geomuni. Es un sitio estático: usa Bootstrap 5.3 por CDN, Google Fonts y no requiere instalación local.
+Página pública responsive para consultar los equipos y plantillas de la Copa Zoológico. Es un sitio estático: usa Bootstrap 5.3 por CDN, Google Fonts y no requiere instalación local.
 
 ## Desarrollo local
 
