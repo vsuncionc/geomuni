@@ -71,9 +71,9 @@ h2 span { color: var(--orange); }
 .team-card-body { padding: 1.35rem 1.5rem 1.5rem; }
 .player-count { display: flex; justify-content: space-between; color: var(--muted); font-size: .7rem; font-weight: 700; text-transform: uppercase; letter-spacing: .12em; margin-bottom: 1rem; }
 .player-count strong { color: var(--team); font: 700 1.9rem/.7 "Barlow Condensed"; }
-.roster { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: 1fr 1fr; gap: .55rem .9rem; }
-.roster li { color: var(--ink); font-size: .72rem; display: flex; gap: .55rem; align-items: baseline; }
-.roster li span { color: var(--team); font: 700 .8rem "Barlow Condensed"; }
+.roster { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: 1fr 1fr; gap: .75rem 1rem; }
+.roster li { color: var(--ink); font-size: clamp(.82rem, 1.2vw, .94rem); font-weight: 700; line-height: 1.15; display: flex; gap: .65rem; align-items: baseline; padding: .12rem 0; }
+.roster li span { flex: 0 0 auto; color: var(--team); font: 700 clamp(.9rem, 1.3vw, 1.05rem) "Barlow Condensed"; }
 .format-section { color: #fff; background: var(--navy); padding: 7rem 0; }
 .format-section h2 { font-size: clamp(3.7rem, 7vw, 6rem); }
 .format-card { display: flex; gap: 1.25rem; border-top: 1px solid rgba(255,255,255,.25); padding: 1.25rem 0; }
