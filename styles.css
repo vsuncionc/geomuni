@@ -61,6 +61,8 @@ h2 span { color: var(--orange); }
 .team-card-media::before { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, transparent 18%, rgba(16,27,45,.78) 100%); z-index: 1; }
 .team-card-media img { width: 100%; height: 220px; display: block; object-fit: cover; transition: transform .5s ease; }
 .team-card:hover .team-card-media img { transform: scale(1.06); }
+.team-card-media .team-logo { position: absolute; z-index: 3; top: 1rem; right: 1rem; width: 4.2rem; height: 4.2rem; padding: .25rem; border: 2px solid rgba(255,255,255,.9); border-radius: 50%; background: #fff; object-fit: contain; box-shadow: 0 5px 16px rgba(0,0,0,.25); transition: transform .3s ease; }
+.team-card:hover .team-logo { transform: scale(1.08) rotate(-4deg); }
 .team-card-media.image-fallback { min-height: 165px; }
 .team-card-media.image-fallback::after { content: "Imagen no disponible · identidad del equipo"; position: absolute; left: 1.5rem; bottom: .9rem; color: rgba(255,255,255,.75); font-size: .6rem; letter-spacing: .06em; text-transform: uppercase; }
 .team-card-media.image-fallback .team-card-head { min-height: 165px; }
@@ -74,6 +76,9 @@ h2 span { color: var(--orange); }
 .roster { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: 1fr 1fr; gap: .75rem 1rem; }
 .roster li { color: var(--ink); font-size: clamp(.82rem, 1.2vw, .94rem); font-weight: 700; line-height: 1.15; display: flex; gap: .65rem; align-items: baseline; padding: .12rem 0; }
 .roster li span { flex: 0 0 auto; color: var(--team); font: 700 clamp(.9rem, 1.3vw, 1.05rem) "Barlow Condensed"; }
+.roster li .player-name { flex: 1 1 auto; color: var(--ink); font: inherit; outline: 0; border-radius: .25rem; padding: .2rem .3rem; margin: -.2rem -.3rem; transition: color .2s ease, background-color .2s ease, transform .2s ease; }
+.roster li .player-name:hover, .roster li .player-name:focus-visible { color: var(--team); background: color-mix(in srgb, var(--team) 14%, white); transform: translateX(3px); }
+.roster li .player-name:focus-visible { box-shadow: 0 0 0 3px color-mix(in srgb, var(--team) 30%, transparent); }
 .format-section { color: #fff; background: var(--navy); padding: 7rem 0; }
 .format-section h2 { font-size: clamp(3.7rem, 7vw, 6rem); }
 .format-card { display: flex; gap: 1.25rem; border-top: 1px solid rgba(255,255,255,.25); padding: 1.25rem 0; }
