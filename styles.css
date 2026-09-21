@@ -53,7 +53,14 @@ h2 span { color: var(--orange); }
 .results-status { min-height: 1.5rem; margin: 3.5rem 0 .75rem; color: var(--muted); font-size: .76rem; }
 .team-card { height: 100%; background: #fff; border: 0; border-top: 7px solid var(--team); transition: transform .3s, box-shadow .3s; box-shadow: 0 5px 0 rgba(16,27,45,.06); }
 .team-card:hover { transform: translateY(-8px); box-shadow: 0 18px 30px rgba(16,27,45,.12); }
-.team-card-head { min-height: 165px; background: var(--team); color: #fff; padding: 1.5rem; position: relative; overflow: hidden; }
+.team-card-media { min-height: 220px; background: var(--team); position: relative; overflow: hidden; }
+.team-card-media::before { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, transparent 18%, rgba(16,27,45,.78) 100%); z-index: 1; }
+.team-card-media img { width: 100%; height: 220px; display: block; object-fit: cover; transition: transform .5s ease; }
+.team-card:hover .team-card-media img { transform: scale(1.06); }
+.team-card-media.image-fallback { min-height: 165px; }
+.team-card-media.image-fallback::after { content: "Imagen no disponible · identidad del equipo"; position: absolute; left: 1.5rem; bottom: .9rem; color: rgba(255,255,255,.75); font-size: .6rem; letter-spacing: .06em; text-transform: uppercase; }
+.team-card-media.image-fallback .team-card-head { min-height: 165px; }
+.team-card-head { min-height: 165px; background: transparent; color: #fff; padding: 1.5rem; position: absolute; inset: 0; overflow: hidden; z-index: 2; }
 .team-card-head::after { content: attr(data-short); position: absolute; right: -.3rem; bottom: -2.4rem; font: 800 9rem/.8 "Barlow Condensed"; opacity: .15; }
 .team-number { position: relative; z-index: 1; font: 700 1.2rem "Barlow Condensed"; opacity: .8; }
 .team-card h3 { position: relative; z-index: 1; max-width: 85%; font-size: 2.25rem; line-height: .84; text-transform: uppercase; margin: 1.8rem 0 0; }
