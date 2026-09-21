@@ -23,3 +23,5 @@ El workflow `.github/workflows/deploy-pages.yml` publica automáticamente el con
 La publicación requiere que GitHub Pages esté habilitado en la configuración del repositorio y permisos de Actions para Pages.
 
 La cabecera de KINEROS usa una fotografía de Neymar con Brasil alojada en [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:20180610_FIFA_Friendly_Match_Austria_vs._Brazil_850_2206.jpg), de Granada, bajo licencia [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/).
+
+La cabecera de HUASCARAN usa la imagen del nevado Huascarán en la Cordillera Blanca, disponible en [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Huascaran.JPG) bajo dominio público.
