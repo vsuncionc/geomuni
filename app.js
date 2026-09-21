@@ -9,6 +9,7 @@ const grid = document.querySelector("#team-grid");
 const search = document.querySelector("#team-search");
 const emptyState = document.querySelector("#empty-state");
 const resultsStatus = document.querySelector("#results-status");
+const countdown = document.querySelector("#countdown");
 
 function renderTeams(query = "") {
   const normalizedQuery = query.trim().toLocaleLowerCase();
@@ -43,3 +44,39 @@ function renderTeams(query = "") {
 
 search.addEventListener("input", (event) => renderTeams(event.target.value));
 renderTeams();
+
+function updateCountdown() {
+  if (!countdown) return;
+
+  const startDateParts = countdown.dataset.startDate.split(/[-T:]/).map(Number);
+  const startDate = new Date(
+    startDateParts[0],
+    startDateParts[1] - 1,
+    startDateParts[2],
+    startDateParts[3],
+    startDateParts[4],
+    startDateParts[5]
+  );
+  const remaining = startDate.getTime() - Date.now();
+
+  if (remaining <= 0) {
+    countdown.classList.add("is-started");
+    countdown.querySelector(".countdown-label").textContent = "El campeonato ya comenzó. ¡Que ruede el balón!";
+    return;
+  }
+
+  const totalSeconds = Math.floor(remaining / 1000);
+  const days = Math.floor(totalSeconds / 86400);
+  const hours = Math.floor((totalSeconds % 86400) / 3600);
+  const minutes = Math.floor((totalSeconds % 3600) / 60);
+  const seconds = totalSeconds % 60;
+  const values = { days, hours, minutes, seconds };
+
+  Object.entries(values).forEach(([unit, value]) => {
+    const element = countdown.querySelector(`[data-unit="${unit}"]`);
+    if (element) element.textContent = String(value).padStart(2, "0");
+  });
+}
+
+updateCountdown();
+setInterval(updateCountdown, 1000);

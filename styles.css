@@ -30,6 +30,14 @@ h1 { font-size: clamp(4.4rem, 10vw, 8.5rem); line-height: .82; letter-spacing: -
 h1 em, h2 em { color: var(--lime); font-style: normal; }
 .hero-lead { max-width: 450px; color: #bac7d5; line-height: 1.7; font-size: 1rem; }
 .arrow { margin-left: 1rem; font-size: 1.2rem; }
+.countdown { margin-top: 2.5rem; max-width: 560px; }
+.countdown-label { color: #bac7d5; font-size: .7rem; letter-spacing: .04em; margin: 0 0 .7rem; }
+.countdown-units { display: flex; gap: clamp(1rem, 4vw, 2.2rem); }
+.countdown-units div { display: flex; flex-direction: column; min-width: 3.5rem; }
+.countdown-units strong { color: var(--lime); font: 700 clamp(2.5rem, 5vw, 3.8rem)/.85 "Barlow Condensed"; }
+.countdown-units span { color: #bac7d5; font-size: .6rem; letter-spacing: .13em; margin-top: .55rem; text-transform: uppercase; }
+.countdown.is-started .countdown-label { color: var(--lime); font-weight: 800; }
+.countdown.is-started .countdown-units { display: none; }
 .hero-stats { display: flex; justify-content: flex-end; gap: clamp(1.2rem, 4vw, 3.5rem); border-top: 1px solid rgba(255,255,255,.25); padding-top: 1.25rem; }
 .hero-stats div { display: flex; flex-direction: column; }
 .hero-stats strong { color: var(--lime); font: 700 3.8rem/.8 "Barlow Condensed"; }
@@ -68,5 +76,5 @@ h2 span { color: var(--orange); }
 .site-footer { background: #0b1a2d; color: #8190a0; padding: 1.5rem 0; font-size: .7rem; }
 .footer-brand { color: #fff; font: 700 1rem "Barlow Condensed"; letter-spacing: .08em; }
 .footer-brand span { color: var(--orange); }
-@media (max-width: 575px) { .hero { min-height: 720px; } .hero-stats { justify-content: flex-start; margin-top: 2rem; } .hero::after { font-size: 16rem; } .teams-section, .format-section { padding: 5rem 0; } }
+@media (max-width: 575px) { .hero { min-height: 780px; } .hero-stats { justify-content: flex-start; margin-top: 2rem; } .hero::after { font-size: 16rem; } .teams-section, .format-section { padding: 5rem 0; } .countdown { margin-top: 2rem; } .countdown-seconds { display: none !important; } }
 @media (prefers-reduced-motion: reduce) { *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; } }
