@@ -38,6 +38,10 @@ h1 em, h2 em { color: var(--lime); font-style: normal; }
 .countdown-units span { color: #bac7d5; font-size: .6rem; letter-spacing: .13em; margin-top: .55rem; text-transform: uppercase; }
 .countdown.is-started .countdown-label { color: var(--lime); font-weight: 800; }
 .countdown.is-started .countdown-units { display: none; }
+.hero-art { position: relative; margin: 0 0 2rem auto; width: min(100%, 330px); aspect-ratio: 2 / 3; border: 1px solid rgba(215,244,67,.55); border-radius: 18px; overflow: hidden; background: #5c9b35; box-shadow: 0 20px 55px rgba(0,0,0,.28); transform: rotate(2deg); }
+.hero-art::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(16,36,61,.02) 45%, rgba(16,36,61,.72)); pointer-events: none; }
+.hero-art img { width: 100%; height: 100%; display: block; object-fit: cover; object-position: center; }
+.hero-art figcaption { position: absolute; z-index: 1; bottom: 1rem; left: 1rem; right: 1rem; color: #fff; font-size: .58rem; letter-spacing: .08em; line-height: 1.4; text-transform: uppercase; }
 .hero-stats { display: flex; justify-content: flex-end; gap: clamp(1.2rem, 4vw, 3.5rem); border-top: 1px solid rgba(255,255,255,.25); padding-top: 1.25rem; }
 .hero-stats div { display: flex; flex-direction: column; }
 .hero-stats strong { color: var(--lime); font: 700 3.8rem/.8 "Barlow Condensed"; }
@@ -83,5 +87,6 @@ h2 span { color: var(--orange); }
 .site-footer { background: #0b1a2d; color: #8190a0; padding: 1.5rem 0; font-size: .7rem; }
 .footer-brand { color: #fff; font: 700 1rem "Barlow Condensed"; letter-spacing: .08em; }
 .footer-brand span { color: var(--orange); }
-@media (max-width: 575px) { .hero { min-height: 780px; } .hero-stats { justify-content: flex-start; margin-top: 2rem; } .hero::after { font-size: 16rem; } .teams-section, .format-section { padding: 5rem 0; } .countdown { margin-top: 2rem; } .countdown-seconds { display: none !important; } }
+@media (max-width: 991px) { .hero-art { margin: 0 auto 2rem; width: min(100%, 260px); transform: rotate(1deg); } .hero-stats { justify-content: center; } }
+@media (max-width: 575px) { .hero { min-height: 1080px; } .hero-art { width: min(100%, 235px); margin-bottom: 1.5rem; } .hero-stats { justify-content: flex-start; margin-top: 2rem; } .hero::after { font-size: 16rem; } .teams-section, .format-section { padding: 5rem 0; } .countdown { margin-top: 2rem; } .countdown-seconds { display: none !important; } }
 @media (prefers-reduced-motion: reduce) { *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; } }
