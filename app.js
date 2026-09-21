@@ -1,7 +1,7 @@
 const teams = [
   { name: "HUASCARAN", color: "#e34b36", short: "H", image: "https://images.unsplash.com/photo-1579952363873-27f3bade9f55?auto=format&fit=crop&w=900&q=78", imageAlt: "Imagen futbolística ilustrativa de HUASCARAN; no corresponde a sus jugadores", players: ["Jhon", "Carlos", "Florentino", "Juan", "Teo", "Italo", "Giancarlo", "Roberto", "Asis", "Nelson"] },
   { name: "LA RESISTENCIA", color: "#ef9c26", short: "LR", image: "https://images.unsplash.com/photo-1431324155629-1a6deb1dec8d?auto=format&fit=crop&w=900&q=78", imageAlt: "Imagen futbolística ilustrativa de LA RESISTENCIA; no corresponde a sus jugadores", players: ["Luis", "Juan", "Romel", "Oscar", "Cesar", "Ruben", "Pecho", "Jorge", "Ernesto", "David"] },
-  { name: "KINEROS FC", color: "#147e88", short: "K", image: "https://upload.wikimedia.org/wikipedia/commons/0/01/Arena_Corinthians.jpg", imageAlt: "Imagen futbolística ilustrativa de la Arena Corinthians en Brasil para KINEROS FC; no corresponde a sus jugadores", logo: "./assets/kineros-fc-escudo.jpg", players: ["Vlady", "Christian Patez", "Christian Uti", "Frank Segura", "Freddy", "James", "Miguelon", "Noe UTI", "Kinero Wilson"] },
+  { name: "KINEROS FC", color: "#147e88", short: "K", image: "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4a/20180610_FIFA_Friendly_Match_Austria_vs._Brazil_850_2206.jpg/960px-20180610_FIFA_Friendly_Match_Austria_vs._Brazil_850_2206.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail", imageAlt: "Imagen futbolística ilustrativa de Neymar marcando para Brasil; alude a Brasil y Neymar, no corresponde a los jugadores de KINEROS FC", country: "BRASIL", logo: "./assets/kineros-fc-escudo.jpg", players: ["Vlady", "Christian Patez", "Christian Uti", "Frank Segura", "Freddy", "James", "Miguelon", "Noe UTI", "Kinero Wilson"] },
   { name: "REAL STATISTIC NEWBOYS", color: "#6254a4", short: "RSN", image: "https://upload.wikimedia.org/wikipedia/commons/4/46/Maracana_Stadium.jpg", imageAlt: "Imagen futbolística ilustrativa del estadio Maracaná en Brasil; no corresponde a sus jugadores", players: ["Moshe Markarian", "Helfer", "Renato", "Abraham", "Miguel Maquina", "Raul", "Vocina", "Leo Rojas"] }
 ];
 
@@ -24,6 +24,7 @@ function renderTeams(query = "") {
         <div class="team-card-media">
           <img src="${team.image}" alt="${team.imageAlt}" loading="lazy" decoding="async">
           ${team.logo ? `<img class="team-logo" src="${team.logo}" alt="Escudo de ${team.name}" loading="lazy" decoding="async">` : ""}
+          ${team.country ? `<span class="team-country-badge" aria-label="Referencia visual a Brasil"><span aria-hidden="true">◆</span>${team.country}</span>` : ""}
           <div class="team-card-head" data-short="${team.short}">
           <span class="team-number">0${teamIndex + 1} / 04</span>
           <h3>${team.name}</h3>

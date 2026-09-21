@@ -63,6 +63,8 @@ h2 span { color: var(--orange); }
 .team-card:hover .team-card-media img { transform: scale(1.06); }
 .team-card-media .team-logo { position: absolute; z-index: 3; top: 1rem; right: 1rem; width: 4.2rem; height: 4.2rem; padding: .25rem; border: 2px solid rgba(255,255,255,.9); border-radius: 50%; background: #fff; object-fit: contain; box-shadow: 0 5px 16px rgba(0,0,0,.25); transition: transform .3s ease; }
 .team-card:hover .team-logo { transform: scale(1.08) rotate(-4deg); }
+.team-country-badge { position: absolute; z-index: 3; left: 1rem; top: 1rem; display: inline-flex; align-items: center; gap: .35rem; padding: .3rem .55rem; border: 1px solid rgba(255,255,255,.8); border-radius: 999px; color: #fff; background: linear-gradient(135deg, #16853b 0 48%, #f5d928 48% 62%, #16853b 62%); box-shadow: 0 4px 12px rgba(0,0,0,.25); font: 800 .58rem "Manrope", sans-serif; letter-spacing: .1em; }
+.team-country-badge span { color: #f5d928; font-size: .7rem; text-shadow: 0 1px 2px rgba(0,0,0,.5); }
 .team-card-media.image-fallback { min-height: 165px; }
 .team-card-media.image-fallback::after { content: "Imagen no disponible · identidad del equipo"; position: absolute; left: 1.5rem; bottom: .9rem; color: rgba(255,255,255,.75); font-size: .6rem; letter-spacing: .06em; text-transform: uppercase; }
 .team-card-media.image-fallback .team-card-head { min-height: 165px; }
