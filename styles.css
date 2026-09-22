@@ -38,6 +38,33 @@ h1 em, h2 em { color: var(--lime); font-style: normal; }
 .countdown-units span { color: #bac7d5; font-size: .6rem; letter-spacing: .13em; margin-top: .55rem; text-transform: uppercase; }
 .countdown.is-started .countdown-label { color: var(--lime); font-weight: 800; }
 .countdown.is-started .countdown-units { display: none; }
+.fixture-section { position: relative; overflow: hidden; padding: 7rem 0 6.5rem; color: #fff; background: var(--navy); }
+.fixture-glow { position: absolute; width: 34rem; height: 34rem; top: -18rem; right: -8rem; border-radius: 50%; background: var(--orange); opacity: .12; filter: blur(3px); }
+.fixture-heading { display: flex; justify-content: space-between; align-items: end; gap: 3rem; margin-bottom: 3.5rem; }
+.fixture-section h2 { font-size: clamp(3.7rem, 8vw, 7rem); }
+.fixture-intro { max-width: 430px; color: #bac7d5; line-height: 1.7; margin: 1.4rem 0 0; }
+.fixture-live-dot { display: inline-block; width: .55rem; height: .55rem; margin-right: .5rem; border-radius: 50%; background: var(--orange); box-shadow: 0 0 0 .35rem rgba(255,99,53,.18); animation: fixture-pulse 2.4s ease-in-out infinite; }
+.fixture-next { flex: 0 0 245px; padding: 1.25rem 1.4rem; border: 1px solid rgba(215,244,67,.7); border-left: 5px solid var(--lime); background: rgba(255,255,255,.06); box-shadow: 0 0 0 0 rgba(215,244,67,.16); animation: fixture-card-pulse 3.8s ease-in-out infinite; }
+.fixture-next-label, .fixture-status { display: block; color: var(--lime); font-size: .62rem; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; }
+.fixture-next strong { display: block; margin: .35rem 0; color: #fff; font: 700 2rem/.95 "Barlow Condensed"; }
+.fixture-next > span:last-child { color: #bac7d5; font-size: .7rem; }
+.fixture-list { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+.fixture-day { border: 1px solid rgba(255,255,255,.16); background: rgba(9,25,44,.54); }
+.fixture-day-header { display: flex; flex-direction: column; gap: .35rem; padding: 1.15rem 1.25rem; border-bottom: 1px solid rgba(255,255,255,.16); }
+.fixture-day-header span { color: var(--orange); font: 700 .8rem "Barlow Condensed"; letter-spacing: .12em; text-transform: uppercase; }
+.fixture-day-header strong { font-size: .78rem; }
+.fixture-match { display: grid; grid-template-columns: 4.5rem 1fr; gap: .7rem; align-items: center; min-height: 104px; padding: 1rem 1.25rem; border-bottom: 1px solid rgba(255,255,255,.1); }
+.fixture-match:last-child { border-bottom: 0; }
+.fixture-match time { color: var(--lime); font: 700 1.4rem/.9 "Barlow Condensed"; }
+.fixture-teams { display: flex; flex-direction: column; gap: .22rem; font-size: .72rem; line-height: 1.1; }
+.fixture-teams span { color: var(--orange); font: 700 .6rem "Barlow Condensed"; letter-spacing: .12em; text-transform: uppercase; }
+.fixture-status { grid-column: 2; color: #8291a3; font-size: .53rem; letter-spacing: .1em; }
+.fixture-match-featured { background: linear-gradient(110deg, rgba(215,244,67,.13), rgba(215,244,67,.02)); }
+.fixture-match-featured time { color: #fff; }
+.fixture-note { color: #9eacbc; font-size: .7rem; letter-spacing: .04em; margin: 1.4rem 0 0; }
+.fixture-note span { color: var(--lime); margin-right: .35rem; }
+@keyframes fixture-pulse { 0%, 100% { opacity: .65; transform: scale(.9); } 50% { opacity: 1; transform: scale(1.15); } }
+@keyframes fixture-card-pulse { 0%, 100% { box-shadow: 0 0 0 0 rgba(215,244,67,.05); } 50% { box-shadow: 0 0 0 9px rgba(215,244,67,0); } }
 .hero-art { position: relative; margin: 0 0 2rem auto; width: min(100%, 330px); aspect-ratio: 2 / 3; border: 1px solid rgba(215,244,67,.55); border-radius: 18px; overflow: hidden; background: #5c9b35; box-shadow: 0 20px 55px rgba(0,0,0,.28); transform: rotate(2deg); }
 .hero-art::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(16,36,61,.02) 45%, rgba(16,36,61,.72)); pointer-events: none; }
 .hero-art img { width: 100%; height: 100%; display: block; object-fit: cover; object-position: center; }
@@ -108,6 +135,6 @@ h2 span { color: var(--orange); }
 .site-footer { background: #0b1a2d; color: #8190a0; padding: 1.5rem 0; font-size: .7rem; }
 .footer-brand { color: #fff; font: 700 1rem "Barlow Condensed"; letter-spacing: .08em; }
 .footer-brand span { color: var(--orange); }
-@media (max-width: 991px) { .hero-art { margin: 0 auto 2rem; width: min(100%, 260px); transform: rotate(1deg); } .hero-stats { justify-content: center; } }
-@media (max-width: 575px) { .hero { min-height: 1080px; } .hero-art { width: min(100%, 235px); margin-bottom: 1.5rem; } .hero-stats { justify-content: flex-start; margin-top: 2rem; } .hero::after { font-size: 16rem; } .teams-section, .location-section, .format-section { padding: 5rem 0; } .countdown { margin-top: 2rem; } .countdown-seconds { display: none !important; } .map-frame, .map-frame iframe { min-height: 300px; } .map-fallback { position: static; } }
-@media (prefers-reduced-motion: reduce) { *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; } }
+@media (max-width: 991px) { .hero-art { margin: 0 auto 2rem; width: min(100%, 260px); transform: rotate(1deg); } .hero-stats { justify-content: center; } .fixture-heading { align-items: start; flex-direction: column; } .fixture-next { flex-basis: auto; width: min(100%, 290px); } .fixture-list { grid-template-columns: 1fr; } }
+@media (max-width: 575px) { .hero { min-height: 1080px; } .hero-art { width: min(100%, 235px); margin-bottom: 1.5rem; } .hero-stats { justify-content: flex-start; margin-top: 2rem; } .hero::after { font-size: 16rem; } .teams-section, .location-section, .format-section, .fixture-section { padding: 5rem 0; } .countdown { margin-top: 2rem; } .countdown-seconds { display: none !important; } .map-frame, .map-frame iframe { min-height: 300px; } .map-fallback { position: static; } .fixture-heading { gap: 2rem; margin-bottom: 2.5rem; } .fixture-match { grid-template-columns: 4rem 1fr; padding: 1rem; } .fixture-teams { font-size: .67rem; } }
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; } }
