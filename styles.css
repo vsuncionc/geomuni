@@ -38,7 +38,7 @@ h1 em, h2 em { color: var(--lime); font-style: normal; }
 .countdown-units span { color: #bac7d5; font-size: .6rem; letter-spacing: .13em; margin-top: .55rem; text-transform: uppercase; }
 .countdown.is-started .countdown-label { color: var(--lime); font-weight: 800; }
 .countdown.is-started .countdown-units { display: none; }
-.fixture-section { position: relative; overflow: hidden; padding: 7rem 0 6.5rem; color: #fff; background: var(--navy); }
+.fixture-section { position: relative; overflow: hidden; padding: 7rem 0 6.5rem; color: #fff; background: #07192b; }
 .fixture-glow { position: absolute; width: 34rem; height: 34rem; top: -18rem; right: -8rem; border-radius: 50%; background: var(--orange); opacity: .12; filter: blur(3px); }
 .fixture-heading { display: flex; justify-content: space-between; align-items: end; gap: 3rem; margin-bottom: 3.5rem; }
 .fixture-section h2 { font-size: clamp(3.7rem, 8vw, 7rem); }
@@ -49,16 +49,16 @@ h1 em, h2 em { color: var(--lime); font-style: normal; }
 .fixture-next strong { display: block; margin: .35rem 0; color: var(--ink); font: 700 1.7rem/.95 "Barlow Condensed"; }
 .fixture-next > span:last-child { color: var(--ink); font-size: .7rem; font-weight: 700; }
 .fixture-list { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
-.fixture-day { border: 1px solid rgba(255,255,255,.16); background: rgba(9,25,44,.54); }
-.fixture-day-header { display: flex; flex-direction: column; gap: .35rem; padding: 1.15rem 1.25rem; border-bottom: 1px solid rgba(255,255,255,.16); }
+.fixture-day { border: 1px solid rgba(166,220,255,.25); background: #0b2138; box-shadow: 0 10px 24px rgba(0,0,0,.14); }
+.fixture-day-header { display: flex; flex-direction: column; gap: .35rem; padding: 1.15rem 1.25rem; border-bottom: 1px solid rgba(166,220,255,.25); }
 .fixture-day-header span { color: var(--orange); font: 700 .8rem "Barlow Condensed"; letter-spacing: .12em; text-transform: uppercase; }
 .fixture-day-header strong { font-size: .78rem; }
-.fixture-match { display: grid; grid-template-columns: 4.5rem 1fr; gap: .7rem; align-items: center; min-height: 104px; padding: 1rem 1.25rem; border-bottom: 1px solid rgba(255,255,255,.1); }
+.fixture-match { display: grid; grid-template-columns: 4.5rem 1fr; gap: .7rem; align-items: center; min-height: 104px; padding: 1rem 1.25rem; border-bottom: 1px solid rgba(166,220,255,.18); }
 .fixture-match:last-child { border-bottom: 0; }
-.fixture-match time { color: var(--lime); font: 700 1.4rem/.9 "Barlow Condensed"; }
+.fixture-match time { color: #b7ff00; font: 700 1.4rem/.9 "Barlow Condensed"; text-shadow: 0 0 10px rgba(183,255,0,.22); }
 .fixture-teams { display: flex; flex-direction: column; gap: .22rem; font-size: .72rem; line-height: 1.1; }
 .fixture-teams span { color: var(--orange); font: 700 .6rem "Barlow Condensed"; letter-spacing: .12em; text-transform: uppercase; }
-.fixture-status { grid-column: 2; color: #8291a3; font-size: .53rem; letter-spacing: .1em; }
+.fixture-status { grid-column: 2; color: #91abc2; font-size: .53rem; letter-spacing: .1em; }
 .fixture-match-featured { background: var(--orange); color: #fff; }
 .fixture-match-featured time, .fixture-match-featured .fixture-teams span, .fixture-match-featured .fixture-status { color: #fff; }
 .fixture-note { color: #9eacbc; font-size: .7rem; letter-spacing: .04em; margin: 1.4rem 0 0; }
