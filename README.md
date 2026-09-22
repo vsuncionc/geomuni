@@ -25,3 +25,5 @@ La publicación requiere que GitHub Pages esté habilitado en la configuración 
 La cabecera de KINEROS usa una fotografía individual de Neymar con Brasil alojada en [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:20180610_FIFA_Friendly_Match_Austria_vs._Brazil_Neymar_850_1705.jpg), de Granada, bajo licencia [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/).
 
 La cabecera de HUASCARAN usa la imagen del nevado Huascarán en la Cordillera Blanca, disponible en [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Huascaran.JPG) bajo dominio público.
+
+La sección **Ubicación** usa las coordenadas `-12.061500, -77.052800` resueltas desde el enlace compartido por la organización. El mapa embebido no usa claves; también conserva un botón directo al enlace corto de Google Maps como fallback.

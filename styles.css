@@ -92,9 +92,21 @@ h2 span { color: var(--orange); }
 .empty-state > span { color: var(--orange); font-size: 3rem; }
 .empty-state h3 { color: var(--ink); font-size: 2rem; margin: .5rem 0; }
 .empty-state p { font-size: .85rem; }
+.location-section { padding: 7rem 0; background: #e8e7e1; }
+.location-copy { height: 100%; display: flex; flex-direction: column; justify-content: center; padding: 1rem 0; }
+.location-pin { display: inline-grid; place-items: center; width: 1.35rem; height: 1.35rem; margin-right: .35rem; border-radius: 50%; color: #fff; background: var(--orange); font: 700 1rem/1 "Manrope"; }
+.location-copy h2 { font-size: clamp(3.5rem, 7vw, 6rem); margin-bottom: 1.4rem; }
+.location-copy h2 span { color: var(--orange); }
+.location-copy > p:not(.eyebrow) { max-width: 380px; color: var(--muted); line-height: 1.7; font-size: .9rem; margin-bottom: 1.5rem; }
+.location-copy .btn { align-self: flex-start; }
+.location-coordinates { color: var(--muted); font-size: .65rem; margin-top: 1rem; }
+.map-frame { height: 100%; min-height: 360px; position: relative; overflow: hidden; border: 8px solid #fff; background: #c9c8c0; box-shadow: 0 12px 28px rgba(16,27,45,.12); }
+.map-frame iframe { width: 100%; height: 100%; min-height: 360px; display: block; border: 0; }
+.map-fallback { position: absolute; right: .75rem; bottom: .65rem; margin: 0; padding: .45rem .65rem; color: var(--ink); background: rgba(255,255,255,.92); font-size: .65rem; }
+.map-fallback a { color: var(--ink); font-weight: 800; }
 .site-footer { background: #0b1a2d; color: #8190a0; padding: 1.5rem 0; font-size: .7rem; }
 .footer-brand { color: #fff; font: 700 1rem "Barlow Condensed"; letter-spacing: .08em; }
 .footer-brand span { color: var(--orange); }
 @media (max-width: 991px) { .hero-art { margin: 0 auto 2rem; width: min(100%, 260px); transform: rotate(1deg); } .hero-stats { justify-content: center; } }
-@media (max-width: 575px) { .hero { min-height: 1080px; } .hero-art { width: min(100%, 235px); margin-bottom: 1.5rem; } .hero-stats { justify-content: flex-start; margin-top: 2rem; } .hero::after { font-size: 16rem; } .teams-section, .format-section { padding: 5rem 0; } .countdown { margin-top: 2rem; } .countdown-seconds { display: none !important; } }
+@media (max-width: 575px) { .hero { min-height: 1080px; } .hero-art { width: min(100%, 235px); margin-bottom: 1.5rem; } .hero-stats { justify-content: flex-start; margin-top: 2rem; } .hero::after { font-size: 16rem; } .teams-section, .location-section, .format-section { padding: 5rem 0; } .countdown { margin-top: 2rem; } .countdown-seconds { display: none !important; } .map-frame, .map-frame iframe { min-height: 300px; } .map-fallback { position: static; } }
 @media (prefers-reduced-motion: reduce) { *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; } }
